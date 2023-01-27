@@ -118,6 +118,11 @@ class VideosController extends Controller
     public function edit($id)
     {
         $data = Videos::find($id);
+        
+        //lets add view count
+        $data->views = $data->views + 1;
+        $data->save();
+
         return view('videos.show',compact('data'));
     }
 
