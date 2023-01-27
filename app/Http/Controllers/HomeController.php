@@ -99,13 +99,14 @@ class HomeController extends Controller
                 }
                             
 
-        
+              //total number of pages totalFiltered/limit
+                $totalnumofpages = ceil($totalFiltered/$limit);
 
             if(!empty($allvideos))
             {
                 $colsData = $colsData."<div class='row mb-4'><h2 class='col-6 tm-text-primary'>Latest Videos</h2>
                            <div class='col-6 d-flex justify-content-end align-items-center'><form action='' class='tm-text-primary'>
-                           Page <input type='text' value='1' size='1' class='tm-input-paging tm-text-primary'> of '$totalData' </form>
+                           Page <input type='text' value='1' size='1' class='tm-input-paging tm-text-primary'> of ".$totalnumofpages." </form>
                            </div></div><div class='row tm-mb-90 tm-gallery'>";
 
                     foreach ($allvideos as $allvideo)
@@ -124,11 +125,15 @@ class HomeController extends Controller
                     }
                 
                 $colsData = $colsData."</div><div class='row tm-mb-90'>
-                <div class='col-12 d-flex justify-content-between align-items-center tm-paging-col'><a href='javascript:void(0);' class='btn btn-primary tm-btn-prev mb-2 disabled'>
-                            Previous</a><div class='tm-paging d-flex'><a href='javascript:void(0);' class='active tm-paging-link'>1</a>
-                            <a href='javascript:void(0);' class='tm-paging-link'>2</a><a href='javascript:void(0);' class='tm-paging-link'>3</a>
-                            <a href='javascript:void(0);' class='tm-paging-link'>4</a></div><a href='javascript:void(0);' class='btn btn-primary tm-btn-next'>Next Page</a>
-                            </div></div>";       
+                            <div class='col-12 d-flex justify-content-between align-items-center tm-paging-col'>
+                            <a href='javascript:void(0);' class='btn btn-primary tm-btn-prev mb-2 disabled'>Previous</a>
+                            <div class='tm-paging d-flex'>
+                            <a href='javascript:void(0);' class='active tm-paging-link'>1</a>
+                            <a href='javascript:void(0);' class='tm-paging-link'>2</a>
+                            <a href='javascript:void(0);' class='tm-paging-link'>3</a>
+                            <a href='javascript:void(0);' class='tm-paging-link'>4</a>
+                            </div><a href='javascript:void(0);' class='btn btn-primary tm-btn-next'>Next Page</a></div>
+                            </div>";       
             }
             
             //check if colsData is empty
