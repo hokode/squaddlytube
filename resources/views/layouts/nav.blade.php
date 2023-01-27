@@ -10,10 +10,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-1" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link nav-link-1 {{(request()->is('home')) || (request()->is('/'))  ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-2 active" aria-current="page" href="{{ route('home') }}">Videos</a>
+                    <a class="nav-link nav-link-2 {{(request()->is('videos'))  ? 'active' : '' }}" aria-current="page" href="{{ url('videos') }}">Videos</a>
                 </li>
                
                
@@ -23,7 +23,9 @@
                 @guest
                     @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link nav-link-3" href="{{ route('login') }}">Sign In</a>
+                        <a class="nav-link nav-link-3 {{(request()->is('login'))  ? 'active' : '' }}" href="{{ route('login') }}">
+                            Sign In
+                        </a>
                     </li>
                     @endif
 
@@ -33,7 +35,7 @@
                    
 
                 <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="{{ route('videos.create') }}">Upload Videos</a>
+                    <a class="nav-link nav-link-4 {{(request()->is('videos/create'))  ? 'active' : '' }}" href="{{ route('videos.create') }}">Upload Videos</a>
                 </li>
 
                 <li class="nav-item">
