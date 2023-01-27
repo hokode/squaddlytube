@@ -13,7 +13,7 @@
                     <a class="nav-link nav-link-1 {{(request()->is('home')) || (request()->is('/'))  ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-2 {{(request()->is('videos'))  ? 'active' : '' }}" aria-current="page" href="{{ url('videos') }}">Videos</a>
+                    <a class="nav-link nav-link-2 {{(request()->is('videos')) || (request()->is('videos/*/edit'))  ? 'active' : '' }}" aria-current="page" href="{{ url('videos') }}">Videos</a>
                 </li>
                
                
