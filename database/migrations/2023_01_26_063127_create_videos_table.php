@@ -20,7 +20,7 @@ return new class extends Migration
             $table->bigInteger('category_id')->index()->nullable($value = true)->unsigned();
             $table->foreign('category_id')->references('id')->on('video_categories')->onDelete('cascade');
             $table->string('title')->nullable($value = false);
-            $table->string('description')->nullable($value = false);
+            $table->text('description')->nullable($value = false);
             $table->bigInteger('views')->default(0)->nullable($value = false);
             $table->string('disk')->nullable($value = false);
             $table->string('path')->nullable($value = false);
